@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cadastro</title>
+
+    <link href="./Styles/main.css" rel="stylesheet">
+    <link rel="stylesheet" media="(max-width: 800px)" href="./Styles/main.css" />
+</head>
+
+<body>
+    <div class="cadastro">
+        <form class="cadastroForm">
+            <div class="textoscadastro">
+                <h1 class="titulocadastro">Cadastro</h1>
+                <div class="iconsLogin">
+                    <a href="#" style="text-decoration: none; "><img class="google" src="./Assets/google-icon.svg" alt="Google"/></a>
+                    <a href="#" style="text-decoration: none; "><img class="fecebook" src="./Assets/facebook-icon.svg" alt="Facebook"/></a>
+                    <a href="#" style="text-decoration: none; "><img class="linkedin" src="./Assets/linkedin-icon.svg" alt="Linkedin"/></a>
+                </div>
+            </div>
+            <div class="inputLogin">
+                <h3 class="tituloNome">Nome</h3>
+                <input id="nome" class="nome" style="width: 300px;" type="text">
+                <h3 class="tituloEmail">Email</h3>
+                <input id="email" class="email" style="width: 300px;" type="email">
+                <h3 class="tituloSenha">Senha</h3>
+                <input id="senha" class="senha" style="width: 300px;" type="password">
+            </div>
+            <div class="buttonEntrar">
+                <a class="entrar" onclick="myFunction()" href="#" style="cursor: pointer;">Cadastro</a>
+            </div>
+        </form>
+        <div class="imageUnlock">
+            <img class="verifyImage" src="./Assets/unlock.svg" alt="Verify"/>
+        </div>
+    </div>
+
+    <script>
+        function ContemNumero(str) {
+            const regex = /[0-9]/
+            return (regex.test(str));
+        }
+
+        function ContemArroba(str) {
+            const regex = /[@]/
+            return (regex.test(str));
+        }
+
+        function CaracteresInvalidos(str) {
+            const regex = /[^a-zA-Z0-9]+/
+            return (regex.test(str));
+        }
+
+        function ValidarFormulario(){
+            var nome = document.querySelector("#nome").value
+            var email = document.querySelector("#email").value
+            var senha = document.querySelector("#senha").value
+
+            if(ContemNumero(nome)){
+                alert("Nome Inválido")
+                return false
+            }
+
+            if(!ContemArroba(email)){
+                alert("Email Inválido")
+                return false
+            }
+            
+            if(CaracteresInvalidos(senha)){
+                alert("Senha Inválida, remova os caracteres especiais")
+                return false
+            }
+
+            return true;
+        }
+        
+        function myFunction() {
+            if (ValidarFormulario)
+                window.location.href = "file:///C:/Users/Thiag/Desktop/Nova%20pasta/form-cadastro-main/telaSucesso.html#";
+        }
+                
+    </script>
+</body>
+
+</html>
